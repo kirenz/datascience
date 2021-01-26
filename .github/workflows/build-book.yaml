@@ -43,8 +43,10 @@ jobs:
 
       - name: Build site
         run: |
-         install.packages(c("remotes", "bslib", "xml2", "tidyverse", "bookdown"))
+         install.packages(c("remotes", "xml2", "tidyverse"))
+         remotes::install_github("rstudio/bslib")
          install.packages("downlit")
+         remotes::install_github("rstudio/bookdown")
          bookdown::render_book("index.Rmd", quiet = TRUE)
         shell: Rscript {0}
         
